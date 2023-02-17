@@ -40,4 +40,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: techtrends:latest
+          tags: dockerflamejc/techtrends:latest
