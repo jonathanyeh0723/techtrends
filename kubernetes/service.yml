@@ -1,0 +1,11 @@
+piVersion: v1
+kind: Service
+metadata:
+  name: techtrends
+  namespace: sandbox
+spec:
+  ports:
+  - protocol: TCP
+    port: 4111
+    targetPort: 3111
+  type: ClusterIP
