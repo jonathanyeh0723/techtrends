@@ -32,6 +32,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+          reponame: ${{ secrets.REPO_NAME }}
+      - name: Get current date # get the date of the build
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d-%M-%S')"
       -
         name: Build and push
         uses: docker/build-push-action@v2
@@ -40,4 +44,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: dockerflamejc/techtrends:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }}:${{ steps.date.outputs.date }}
