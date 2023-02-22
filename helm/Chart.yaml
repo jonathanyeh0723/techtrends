@@ -1,0 +1,9 @@
+apiVersion: v1
+name: techtrends
+description: Perform TechTrends deployment manifests
+keywords:
+- techtrends
+version: 1.0.0
+maintainers:
+- name: jonathan_yeh
+  email: johnnyyeh0723@gmail.com

@@ -1,0 +1,35 @@
+namespace:
+  name: staging
+
+service:
+  port: 5111
+  targetPort: 3111
+  protocol: TCP
+  type: ClusterIP
+
+image:
+  repository: techtrends
+  tag: latest
+  pullPolicy: IfNotPresent
+
+replicaCount: 3
+
+resources:
+  requests:
+    cpu: 300m
+    memory: 90Mi
+  limits:
+    cpu: 500m
+    memory: 128Mi
+
+ports:
+- containerPort: 3111
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 3111
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: 3111
+
