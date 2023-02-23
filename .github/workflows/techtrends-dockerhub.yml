@@ -37,7 +37,7 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d-%M-%S')"
       -
-        name: Build and push
+        name: Build and push with custom tag to align with datetime
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -45,3 +45,12 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }}:${{ steps.date.outputs.date }}
+      -
+        name: Build and push with latest tag
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }}:latest
