@@ -1,13 +1,12 @@
-# Initializes a new build stage and sets the Base Image as python 3.8-alpine version
-FROM python:3.8-alpine
+# Initializes a new build stage and sets the Base Image as python 3.8 version
+FROM python:3.8
 
-# To set current working directory
-WORKDIR .
+# To set current working directory as /app
+WORKDIR /app 
 
 # To first handle requirements.txt first to ensure our app has all its dependencies installed.
 COPY app/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
 
 # Copying new files or directories from <src> and adds them to the filesystem of the container at the path <dest>.
 # To execute any commands in a new layer on top of the current image and commit the results.
