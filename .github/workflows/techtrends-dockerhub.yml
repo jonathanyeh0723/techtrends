@@ -45,7 +45,6 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }}:${{ steps.date.outputs.date }}
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }}:latest
       - name: Push the image built with latest tag as well
         run: |
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }}:latest
