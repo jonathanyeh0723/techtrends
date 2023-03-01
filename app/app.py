@@ -8,7 +8,6 @@ from datetime import datetime
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
-conn_counter = 0
 
 
 def get_datetime():
@@ -21,10 +20,9 @@ def get_datetime():
 
 def get_db_connection():
     """Link to database."""
-    global conn_counter
     connection = sqlite3.connect('database.db')
     connection.row_factory = sqlite3.Row
-    conn_counter += 1
+    app.config['COUNTER'] += 1
 
     return connection
 
@@ -42,7 +40,7 @@ def get_post(post_id):
 # Define the Flask application
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
-
+app.config['COUNTER'] = 0
 
 # Define the main route of the web application
 @app.route('/')
@@ -110,8 +108,15 @@ def create():
 @app.route('/healthz')
 def healthz():
     """Healthcheck endpoint."""
+    try:
+        connection = get_db_connection()
+        connection.execute('SELECT 1 FROM posts').fetchone()
+        res = " OK - healthy"
+    except Exception as e:
+        res = 'Exception: {0}'.format(e)
+
     response = app.response_class(
-                response=json.dumps({"result": " OK - healthy"}),
+                response=json.dumps({"result": res}),
                 status=200,
                 mimetype="application/json"
                 )
@@ -129,7 +134,7 @@ def metrics():
     response = app.response_class(
                 response=json.dumps({"status": "success",
                                      "code": 0,
-                                     "data": {"db_connection_count": conn_counter,
+                                     "data": {"db_connection_count": app.config['COUNTER'],
                                               "post_count": len(posts)}}),
                 status=200,
                 mimetype="application/json")
