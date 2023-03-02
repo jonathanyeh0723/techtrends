@@ -42,6 +42,17 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
 app.config['COUNTER'] = 0
 
+# Add the following to record the logs to stderr as well
+# Grab underlying WSGI logger. Create handler. Add it to werkzeug WSGI logger
+# For the http event
+logger = logging.getLogger('werkzeug')
+stderr_handler = logging.FileHandler('stderr.log')
+logger.addHandler(stderr_handler)
+# For the info
+handler = logging.FileHandler("stderr.log")  
+app.logger.addHandler(handler)             
+app.logger.setLevel(logging.DEBUG)         
+
 # Define the main route of the web application
 @app.route('/')
 def index():

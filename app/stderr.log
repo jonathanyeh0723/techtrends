@@ -1,0 +1,20 @@
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://10.0.2.15:3111/ (Press CTRL+C to quit)
+127.0.0.1 - - [02/Mar/2023 17:41:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2023 17:41:41] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+03/02/2023, 17:41:50, Article "CNCF Cloud Native Interactive Landscape" retrieved!
+127.0.0.1 - - [02/Mar/2023 17:41:50] "GET /4 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2023 17:41:50] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+03/02/2023, 17:41:53, the "About Us" page is retrieved.
+127.0.0.1 - - [02/Mar/2023 17:41:53] "GET /about HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2023 17:41:53] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+[1;31m03/02/2023, 17:41:56, This is not an existing article. Pleae check again.
+127.0.0.1 - - [02/Mar/2023 17:41:56] "[33mGET /1000 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Mar/2023 17:41:56] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Mar/2023 17:41:58] "GET /create HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2023 17:41:58] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+03/02/2023, 17:42:55, The new article [1;32m"Prometheus"[1;37m has been posted!
+127.0.0.1 - - [02/Mar/2023 17:42:55] "[32mPOST /create HTTP/1.1[0m" 302 -
+127.0.0.1 - - [02/Mar/2023 17:42:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2023 17:42:55] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
