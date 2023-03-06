@@ -3,7 +3,6 @@ namespace:
 
 service:
   port: 5111
-  targetPort: 3111
 
 replicaCount: 3
 
