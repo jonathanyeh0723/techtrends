@@ -1,5 +1,14 @@
 # TechTreds Web Application
 
+[![Project_Version](https://img.shields.io/badge/version-2023.1-blue)](PROJECT)
+[![Method](https://img.shields.io/badge/method-CI%2FCD-red)](CICD)
+[![Build](https://img.shields.io/badge/build-passing-success)](BUILD)
+[![Test](https://img.shields.io/badge/test-passing-success)](TEST)
+[![Package](https://img.shields.io/badge/docker%20package-passing-success)](PACKAGE)
+[![K8s](https://img.shields.io/badge/kubernetes%20deploy-passing-success)](K8s)
+[![Delivery](https://img.shields.io/badge/delivery-passing-success)](DELIVERY)
+[![Apache License Version 2.0](https://img.shields.io/badge/license-Apache%202.0-blueviolet)](LICENSE)
+
 This is a Flask application that lists the latest articles within the cloud-native ecosystem.
 
 ## Run 
