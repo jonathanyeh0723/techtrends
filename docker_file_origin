@@ -1,5 +1,5 @@
-# Initializes a new build stage and sets the Base Image as python 3.8-alpine
-FROM python:3.8-alpine
+# Initializes a new build stage and sets the Base Image as python 3.8 version
+FROM python:3.8
 
 # To set current working directory as /app
 WORKDIR /app 
@@ -7,9 +7,6 @@ WORKDIR /app
 # To first handle requirements.txt first to ensure our app has all its dependencies installed.
 COPY app/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Install curl. It's a URL retrieval (download/upload) command-line utility and library. It is free software for Alpine Linux.
-RUN apk --no-cache add curl
 
 # Copying new files or directories from <src> and adds them to the filesystem of the container at the path <dest>.
 # To execute any commands in a new layer on top of the current image and commit the results.
