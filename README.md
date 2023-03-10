@@ -9,7 +9,18 @@
 [![Delivery](https://img.shields.io/badge/delivery-passing-success)](DELIVERY)
 [![Apache License Version 2.0](https://img.shields.io/badge/license-Apache%202.0-blueviolet)](LICENSE)
 
-This is a Flask application that lists the latest articles within the cloud-native ecosystem.
+**TechTrends** is an online website used as a news sharing platform, that enables consumers to access the latest news within the cloud-native ecosystem.
+
+In addition to accessing the available articles, readers are able to create new media articles and share them with the wider community.
+
+This is **NOT** only a Flask web app. It is an end-to-end [CI/CD](https://www.redhat.com/en/topics/devops/what-is-ci-cd) (Build, Test, Package, Delivery) showcase.
+-	Using Python as backend programming to construct a frontend architecture.
+-	Leveraging Docker to package the application.
+-	Automating the CI (Continuous Integration) process with GitHub Actions.
+-	Deploying the app by conducting Kubernetes declarative manifests.
+-	Templating with Helm for convenient distinguishing the different development phase (staging, production).
+-	Automating the Continuous Delivery release with ArgoCD. 
+
 
 ## Run 
 
