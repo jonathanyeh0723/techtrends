@@ -1,4 +1,4 @@
-# TechTreds Web Application
+# TechTreds Web Application in CI/CD pipeline
 
 [![Project_Version](https://img.shields.io/badge/version-2023.1-blue)](PROJECT)
 [![Method](https://img.shields.io/badge/method-CI%2FCD-red)](CICD)
