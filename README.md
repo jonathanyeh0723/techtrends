@@ -21,6 +21,8 @@ This is **NOT** only a Flask web app. It is an end-to-end [CI/CD](https://www.re
 -	Templating with Helm for convenient distinguishing the different development phase (staging, production).
 -	Automating the Continuous Delivery release with ArgoCD. 
 
+![demo](./resources/app_demo.gif)
+
 
 ## Run 
 
