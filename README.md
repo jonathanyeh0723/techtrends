@@ -1,4 +1,4 @@
-# TechTreds Web Application in CI/CD pipeline
+# TechTreds Web Application in CI/CD Pipeline
 
 [![Project_Version](https://img.shields.io/badge/version-2023.1-blue)](PROJECT)
 [![Method](https://img.shields.io/badge/method-CI%2FCD-red)](CICD)
@@ -14,13 +14,14 @@
 In addition to accessing the available articles, readers are able to create new media articles and share them with the wider community.
 
 This is **NOT** only a Flask web app. It is an end-to-end [CI/CD](https://www.redhat.com/en/topics/devops/what-is-ci-cd) (Build, Test, Package, Delivery) showcase.
--	Using Python as backend programming to construct a frontend architecture.
--	Leveraging Docker to package the application.
--	Automating the CI (Continuous Integration) process with GitHub Actions.
--	Deploying the app by conducting Kubernetes declarative manifests.
--	Templating with Helm for convenient distinguishing the different development phase (staging, production).
--	Automating the Continuous Delivery release with ArgoCD. 
+-	Using [Python](https://www.python.org/) as backend programming to construct a frontend architecture.
+-	Leveraging [Docker](https://www.docker.com/) to package the application.
+-	Automating the CI (Continuous Integration) process with [GitHub Actions](https://github.com/features/actions).
+-	Deploying the app by conducting [Kubernetes](https://kubernetes.io/) declarative manifests.
+-	Templating with [Helm](https://helm.sh/) for convenient distinguishing the different development phase (staging, production).
+-	Automating the Continuous Delivery release with [ArgoCD](https://argo-cd.readthedocs.io/en/stable/). 
 
+:moyai::moyai::moyai:TechTrends web application demo 
 ![demo](./resources/app_demo.gif)
 
 
