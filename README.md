@@ -21,7 +21,9 @@ This is **NOT** only a Flask web app. It is an end-to-end [CI/CD](https://www.re
 -	Templating with [Helm](https://helm.sh/) for convenient distinguishing the different development phase (staging, production).
 -	Automating the Continuous Delivery release with [ArgoCD](https://argo-cd.readthedocs.io/en/stable/). 
 
-:moyai::moyai::moyai:TechTrends web application demo 
+:moyai::moyai::moyai:TechTrends web application demo:moyai::moyai::moyai:<br>
+:cowboy_hat_face:Interested? [Try it out](http://jonathanyeh.pythonanywhere.com/):point_left:
+
 ![demo](./resources/app_demo.gif)
 
 
