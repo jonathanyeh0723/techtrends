@@ -26,6 +26,14 @@ This is **NOT** only a Flask web app. It is an end-to-end [CI/CD](https://www.re
 
 ![demo](./resources/app_demo.gif)
 
+## Prerequisites
+Make sure you have the following dependencies installed:
+- [Python](https://www.python.org/downloads/) as programming language to structure the Flask web app.
+- [Git](https://git-scm.com/downloads) for working with GitHub repo and version control tool.
+- [Docker](https://docs.docker.com/get-docker/) to package and ship the codes with isolated container.
+- [Virtualbox](https://www.virtualbox.org/wiki/Downloads) to create virtual machine.
+- [Vagrant](https://www.vagrantup.com/downloads) for building and managing virtual machine environments. Ensure you have `6.1.16` or higher version installed.
+
 
 ## Run 
 
