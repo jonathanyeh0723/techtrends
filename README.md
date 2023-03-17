@@ -13,6 +13,15 @@
 
 In addition to accessing the available articles, readers are able to create new media articles and share them with the wider community.
 
+The following is the landscape of main components of the web application. The web application is written using the Python Flask framework, and taking SQLite which is a lightweight disk-based database to store the submitted articles.
+
+![view](./resources/web_app_landscape.jpg)
+
+:moyai::moyai::moyai:TechTrends web application demo:moyai::moyai::moyai:<br>
+:cowboy_hat_face:Interested? [Try it out](http://jonathanyeh.pythonanywhere.com/):point_left:
+
+![demo](./resources/app_demo.gif)
+
 This is **NOT** only a Flask web app. It is an end-to-end [CI/CD](https://www.redhat.com/en/topics/devops/what-is-ci-cd) (Build, Test, Package, Delivery) showcase.
 -	Using [Python](https://www.python.org/) as backend programming to construct a frontend architecture.
 -	Leveraging [Docker](https://www.docker.com/) to package the application.
@@ -20,11 +29,6 @@ This is **NOT** only a Flask web app. It is an end-to-end [CI/CD](https://www.re
 -	Deploying the app by conducting [Kubernetes](https://kubernetes.io/) declarative manifests.
 -	Templating with [Helm](https://helm.sh/) for convenient distinguishing the different development phase (staging, production).
 -	Automating the Continuous Delivery release with [ArgoCD](https://argo-cd.readthedocs.io/en/stable/). 
-
-:moyai::moyai::moyai:TechTrends web application demo:moyai::moyai::moyai:<br>
-:cowboy_hat_face:Interested? [Try it out](http://jonathanyeh.pythonanywhere.com/):point_left:
-
-![demo](./resources/app_demo.gif)
 
 ## Prerequisites
 Make sure you have the following dependencies installed:
