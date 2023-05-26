@@ -18,6 +18,7 @@ COPY app/ .
 RUN python3 init_db.py
 
 # To inform Docker that the container listens on the specified network ports at runtime.
+# Expose the port that aligns what app.py published - app.run(host='0.0.0.0', port='3111')
 EXPOSE 3111
 
 # To provide defaults (ENTRYPOINT) for an executing container.

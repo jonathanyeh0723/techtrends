@@ -33,3 +33,22 @@
  * Running on http://10.21.21.196:3111/ (Press CTRL+C to quit)
 127.0.0.1 - - [14/Apr/2023 15:28:02] "GET / HTTP/1.1" 200 -
 127.0.0.1 - - [14/Apr/2023 15:28:02] "GET /static/css/main.css HTTP/1.1" 200 -
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://10.20.11.16:3111/ (Press CTRL+C to quit)
+127.0.0.1 - - [26/May/2023 15:32:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [26/May/2023 15:32:23] "GET /static/css/main.css HTTP/1.1" 200 -
+127.0.0.1 - - [26/May/2023 15:32:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/May/2023 15:32:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [26/May/2023 15:32:30] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [26/May/2023 15:32:41] "GET /create HTTP/1.1" 200 -
+127.0.0.1 - - [26/May/2023 15:32:41] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+05/26/2023, 15:32:54, The new article [1;32m"Grafana"[1;37m has been posted!
+127.0.0.1 - - [26/May/2023 15:32:54] "[32mPOST /create HTTP/1.1[0m" 302 -
+127.0.0.1 - - [26/May/2023 15:32:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [26/May/2023 15:32:54] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+05/26/2023, 15:33:01, Article "Grafana" retrieved!
+127.0.0.1 - - [26/May/2023 15:33:01] "GET /13 HTTP/1.1" 200 -
+127.0.0.1 - - [26/May/2023 15:33:01] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [26/May/2023 15:33:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [26/May/2023 15:33:10] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
