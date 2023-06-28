@@ -32,3 +32,25 @@ Multiple VMs on a hypervisor are replaced by multiple containers running on a si
 
 The appearance of containers is unlocked by OS-level virtualization and as a result, multiple applications can run on the same OS. By nature, containers are lightweight, as these encapsulate only the application code and essential dependencies. Consequently, there is a better usage of available infrastructure and a more efficient pathway to release a product to consumers.
 
+## Introducing Docker for Application Packaging
+
+The appearance of containers enabled organizations to ship products using a lightweight mechanism, that would make the most of available infrastructure. There are plenty of tools used to containerize services, however, Docker has set the industry standards for many years.
+
+To containerize an application using Docker, 3 main components are distinguished:
+-	Dockerfiles
+-	Docker images
+-	Docker registries
+
+### Dockerfile
+
+A Dockerfile is a set of instructions used to create a Docker image. Each instruction is an operation used to package the application, such as installing dependencies, compile the code, or impersonate a specific user.
+
+A Docker image is composed of multiple layers, and each layer is represented by an instruction in the Dockerfile. All layers are cached and if an instruction is modified, then during the build process only the changed layer will be rebuilt. As a result, building a Docker image using a Dockerfile is a lightweight and quick process.
+
+To construct a Dockerfile, it is necessary to use the pre-defined instructions, such as:
+
+<font color=#0000FF>**FROM**</font> - to set the base image
+<font color=#0000FF>**RUN**</font> – to execute a command
+<font color=#0000FF>**COPY & ADD** </font> – to copy files from host to the container
+<font color=#0000FF>**CMD** </font> – to set the default command to execute when the container starts
+<font color=#0000FF>**EXPOSE** </font> – to expose an application port
