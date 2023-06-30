@@ -54,3 +54,32 @@ To construct a Dockerfile, it is necessary to use the pre-defined instructions, 
 <font color=#0000FF>**COPY & ADD** </font> – to copy files from host to the container<br>
 <font color=#0000FF>**CMD** </font> – to set the default command to execute when the container starts<br>
 <font color=#0000FF>**EXPOSE** </font> – to expose an application port<br>
+
+Below is an example of a Dockerfile that targets to package a Python hello-world application:
+
+```python
+# Set the base image. Since we are running a
+# Python application a Python base image is used
+FROM python:3.8
+
+# Set a key-value label for the Docker image
+LABEL maintainer="Jonathan Yeh"
+
+# Copy files from the host to the container filesystem.
+# For example, all the files in the current directory
+# to the "/app" directory in the container
+COPY . /app
+
+# Defines the working directory within the container.
+# In this case is "/app"
+WORKDIR /app
+
+# Run commands within the container.
+# For example, invoke a pip command
+# to install dependencies defined in the requirements.txt file
+**RUN** pip install -r requirements.txt
+
+# Provide a command to run on container starts.
+# For example, start the "app.py" application
+CMD ["python3", "app.py"]
+```
