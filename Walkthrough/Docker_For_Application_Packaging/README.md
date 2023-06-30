@@ -49,8 +49,8 @@ A Docker image is composed of multiple layers, and each layer is represented by 
 
 To construct a Dockerfile, it is necessary to use the pre-defined instructions, such as:
 
-<font color=#0000FF>**FROM**</font> - to set the base image
-<font color=#0000FF>**RUN**</font> – to execute a command
-<font color=#0000FF>**COPY & ADD** </font> – to copy files from host to the container
-<font color=#0000FF>**CMD** </font> – to set the default command to execute when the container starts
-<font color=#0000FF>**EXPOSE** </font> – to expose an application port
+<font color=#0000FF>**FROM**</font> - to set the base image<br>
+<font color=#0000FF>**RUN**</font> – to execute a command<br>
+<font color=#0000FF>**COPY & ADD** </font> – to copy files from host to the container<br>
+<font color=#0000FF>**CMD** </font> – to set the default command to execute when the container starts<br>
+<font color=#0000FF>**EXPOSE** </font> – to expose an application port<br>
