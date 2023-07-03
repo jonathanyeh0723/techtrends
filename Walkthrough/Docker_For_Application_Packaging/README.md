@@ -83,3 +83,66 @@ WORKDIR /app
 # For example, start the "app.py" application
 CMD ["python3", "app.py"]
 ```
+
+### Docker Image
+
+Once a Dockerfile is constructed, these instructions are used to build a Docker image. A Docker image is a read-only template that enables the creation of a runnable instance of an application. In a nutshell, a Docker image provides the execution environment for an application, including any essential code, config files, and dependencies.
+
+A Docker image can be built from an existing Dockerfile using the `docker build` command. Below is the syntax for this command:
+
+```python
+# Build an image
+
+# OPTIONS – optional; define extra configuration
+
+# PATH – required; sets the location of the Dockerfile and any referenced files
+docker build [OPTIONS] PATH
+
+# Where OPTIONS can be:
+-t, --tag		set the name and tag of the image
+-f, --file		set the name of the Dockerfile
+--build-arg		set build-time variables
+
+# Find all valid options for this command
+docker build --help
+```
+
+For example, to build the image of the Python hello-world application from the Dockerfile, the following command can be used:
+
+```python
+# Build an image using the Dockerfile from the current directory
+docker build -t python-helloworld .
+
+# Build an image using the Dockerfile from the `lesson1/python-app` directory
+docker build -t python-helloworld lesson1/python-app
+```
+
+Before distributing the Docker image to a wider audience, it is paramount to test it locally and verify if it meets the expected behavior. To create a container using an available Docker image, the `docker run` command is available. Below is the syntax for this command:
+
+```python
+# Execute an image
+
+# OPTIONS  optional; define extra configuration
+
+# IMAGE  required; provides the name of the image to be executed
+
+# COMMAND and ARGS optional; instruct the container to run specific commands when it starts
+docker run [OPTIONS] IMAGE [COMMAND] [ARG…]
+
+# Where OPTIONS can be:
+-d, --detach   run in the background
+-p, --publish  expose container port to host
+-it, 		   start an interactive shell
+
+# Find all valid options for this command
+docker run --help
+```
+
+For example, to run the Python help-world application, using the created image, the following command can be used:
+
+**Note:** To access the application in browser, we need to bind the Docker container port to a port on the host or local machine. In this case, `5111` is the host port that we use to access the application e.g., `http://127.0.0.1:5111/`. The `5000` is the container port that the application is listening to for incoming requests.
+
+```python
+# Run the `python-helloworld` image, in detached mode and expose it on port `5111`
+docker run -d -p 5111:5000 python-helloworld
+```
