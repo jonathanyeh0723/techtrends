@@ -77,7 +77,7 @@ WORKDIR /app
 # Run commands within the container.
 # For example, invoke a pip command
 # to install dependencies defined in the requirements.txt file
-**RUN** pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Provide a command to run on container starts.
 # For example, start the "app.py" application
@@ -99,9 +99,9 @@ A Docker image can be built from an existing Dockerfile using the `docker build`
 docker build [OPTIONS] PATH
 
 # Where OPTIONS can be:
--t, --tag		set the name and tag of the image
--f, --file		set the name of the Dockerfile
---build-arg		set build-time variables
+-t, --tag	set the name and tag of the image
+-f, --file	set the name of the Dockerfile
+--build-arg	set build-time variables
 
 # Find all valid options for this command
 docker build --help
@@ -132,7 +132,7 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG…]
 # Where OPTIONS can be:
 -d, --detach   run in the background
 -p, --publish  expose container port to host
--it, 		   start an interactive shell
+-it, 	       start an interactive shell
 
 # Find all valid options for this command
 docker run --help
@@ -145,4 +145,33 @@ For example, to run the Python help-world application, using the created image, 
 ```python
 # Run the `python-helloworld` image, in detached mode and expose it on port `5111`
 docker run -d -p 5111:5000 python-helloworld
+```
+
+To retrieve the Docker container logs, we can use the `docker logs {{ CONTAINER_ID }}` command. For example:
+
+```python
+docker logs 95173091eb5e
+
+## Example output from a Flask application
+* Serving Flask app "app" (lazy loading)
+* Environment: production
+WARNING: This is a development server. Do not use it in a production deployment.
+Use a production WSGI server instead.
+* Debug mode: off
+```
+
+### Docker Registry
+
+The last step in packaging an application using Docker is to store and distribute it. So far, we have built and tested an image on the local machine, which does not ensure that other engineers have access to it. As a result, the image needs to be pushed to a **public Docker image registry**, such as Dockerhub, Harbor, Google Container Registry, and many more. However, there might be cases where an image should be private and only available to trusted parties. As a result, a team can host private image registries, which provides full control over who can access and execute the image.
+
+Before pushing an image to a Docker registry, it is highly recommended to tag it first. During the build stage, if a tag is not provided (via the `-t` or `--tag` flag), then the image would be allocated an ID, which does not have a human-readable format (e.g. 0e5574283393). On the other side, a defined tag is easily scalable by the human eye, as it is composed of a registry repository, image name, and version. Also a tag provides version control over application releases, as new tag would indicate a new release.
+
+To tag an existing image on the local machine, the `docker tag` command is available. Below is the syntax for this command:
+
+```python
+# Tag an image
+# SOURCE_IMAGE [:TAG]  required and the tag is optional; define the name of an image on the current machine
+# TARGET_IMAGE [:TAG]  required and the tag is optional; define the repository, name, and version of an image
+
+docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
 ```
