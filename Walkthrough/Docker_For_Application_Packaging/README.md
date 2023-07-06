@@ -175,3 +175,51 @@ To tag an existing image on the local machine, the `docker tag` command is avail
 
 docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
 ```
+
+For example, to tag the Python hello-world application, to be pushed to a repository on DockerHub, the following command can be used:
+
+```python
+# Tag the `python-helloworld` image, to be pushed
+# in the `pixelpotato` repository, with the `python-helloworld` image name
+# and version `v1.0.0`
+docker tag python-helloworld pixelpotato/python-helloworld:v1.0.0
+```
+
+Once the image is tagged, the final step is to push the image to a registry. For this purpose, the `docker push` command can be used. Below is the syntax for this command:
+
+```python
+# Push an image to a registry
+# NAME [:TAG] – required and the tag is optional; name, set the image name to be pushed to the registry
+docker push NAME[:TAG]
+```
+
+For example, to push the Python hello-world application to DockerHub, the following command can be used:
+
+```python
+# Push the `python-helloworld` application in version v1.0.0
+# to the `pixelpotato` repository in DockerHub
+docker push pixelpotato/python-helloworld:v1.0.0
+```
+
+#### New terms
+-  **Dockerfile**  - set of instructions used to create a Docker image
+- **Docker image**  - a read-only template used to spin up a runnable instance of an application
+- **Docker registry**  - a central mechanism to store and distribute Docker images
+
+## Useful Docker Commands
+
+### Summary
+Docker provides a rich set of actions that can be used to build, run, tag and push images. Below is a list of handy Docker commands used in practice.
+
+**Note:** In the following commands these arguments are used:
+
+- **OPTIONS** - define extra configuration through flags
+-   **IMAGE**  - sets the name of the image
+-   **NAME**- set the name of the image
+-   **COMMAND**  and  **ARG**  - instruct the container to run specific commands associated with a set of arguments
+
+#### Build Images
+To build an image, use the following command, where PATH sets the location of the Dockerfile and referenced application files:
+
+```python
+docker build [OPTIONS] PATH
