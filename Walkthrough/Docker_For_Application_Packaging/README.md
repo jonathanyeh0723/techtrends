@@ -223,3 +223,64 @@ To build an image, use the following command, where PATH sets the location of th
 
 ```python
 docker build [OPTIONS] PATH
+```
+
+#### Run Images
+To run an image, use the following command:
+```python
+docker run [OPTIONS] IMAGE [COMMAND] [ARG…]
+```
+
+### Get Logs
+To get the logs from a Docker container, use the following command:
+```python
+docker logs CONTAINER_ID
+```
+Where CONTAINER_ID is the ID of the Docker container that runs an application.
+
+#### List Images
+To list all available images, use the following command:
+```python
+docker images
+or
+docker image ls
+```
+
+#### List Containers
+To list all running containers, use the following command:
+```python
+docker ps
+```
+
+#### Tag Images
+To tag an image, use the following command, where SOURCE_IMAGE defines the name of an image on the current machine and TARGET_IMAGE defines the repository, name, and version of an image:
+```python
+docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+```
+
+#### Login to DockerHub
+To login into DockerHub, use the following command:
+```python
+docker login
+```
+
+#### Push Images
+To push an image to DockerHub, use the following command:
+```python
+docker push NAME[:TAG]
+```
+
+#### Pull Images
+To pull an image from DockerHub, use the following command:
+```python
+docker pull NAME[:TAG]
+```
+
+## Docker Knowledge Check
+
+|Docker component  |Purpose                                             |
+|------------------|----------------------------------------------------|
+|Dockerfile        |Set of instructions to create a Docker image        |
+|Docker image      |A read-only template used to spin up a container    |
+|Docker container  |A running instance of the Docker image              |
+|Docker registry   |A tool used to **store** and **distribute** images  |
