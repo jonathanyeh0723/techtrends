@@ -278,9 +278,30 @@ docker pull NAME[:TAG]
 
 ## Docker Knowledge Check
 
+
+### Quiz 1
 |Docker component  |Purpose                                             |
 |------------------|----------------------------------------------------|
 |Dockerfile        |Set of instructions to create a Docker image        |
 |Docker image      |A read-only template used to spin up a container    |
 |Docker container  |A running instance of the Docker image              |
 |Docker registry   |A tool used to **store** and **distribute** images  |
+
+### Quiz 2
+By default, Docker will create OCI (Open Container Initiative) compliant images. What is the reason for using OCI guidelines?
+
+[   ] To ensure everyone uses Docker
+<font color=#00FF00>[ v ] To standardize the image formats</font>`
+<font color=#00FF00>[ v ] To ensure that images can execute on OCI compliant runtimes</font>
+[    ] To ensure Dockerfiles are used as a standard component
+
+### Quiz 3
+What is the Docker command used to get the following output?
+
+|Docker command    |Output                                              |
+|------------------|----------------------------------------------------|
+|Build a Docker image using `Dockerfile.staging` file in the `app/backend` folder        |docker build -f Dockerfile.staging app/backend     |
+|Create an interactive shell to a `busybox` container      |docker run -it busybox    |
+|Tag the new image ID as the front-end application in version`v4.5.2`  |docker tag f10f0a406345 pixelpotato/frontend:v4.5.2              |
+|Push the new front-end application to DockerHub   |docker push pixelpotato/frontend:v4.5.2  |
+|Login into the DockerHub using valid credentials   |docker login  |
