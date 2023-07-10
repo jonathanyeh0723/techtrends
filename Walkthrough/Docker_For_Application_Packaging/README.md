@@ -291,9 +291,10 @@ docker pull NAME[:TAG]
 By default, Docker will create OCI (Open Container Initiative) compliant images. What is the reason for using OCI guidelines?
 
 [   ] To ensure everyone uses Docker
-<font color=#00FF00>[ v ] To standardize the image formats</font>`
+<font color=#00FF00>[ v ] To standardize the image formats</font>
 <font color=#00FF00>[ v ] To ensure that images can execute on OCI compliant runtimes</font>
 [    ] To ensure Dockerfiles are used as a standard component
+
 
 ### Quiz 3
 What is the Docker command used to get the following output?
