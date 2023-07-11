@@ -111,12 +111,72 @@ This command downloads a test image and runs it in a container. When the contain
 
 Congratulations! You have now successfully installed and started Docker Engine.
 
-## Linux post-installation steps for Docker Engine
-These optional post-installation procedures shows you how to configure your Linux host machine to work better with Docker.
+## [Linux post-installation steps for Docker Engine](https://docs.docker.com/engine/install/linux-postinstall/)
 
-Once Docker has been installed and verified with `hello-world` image, you would consider to further utilize this tool for your application packaging. However, if you try to use its extensive command argument such as `docker image ls` to retrieve all the docker images, you would encounter error message like below:
+### Manage Docker as a non-root user
+The docker daemon binds to a Unix socket, not a TCP port. By default it’s the `root` user that owns the Unix docket, and other users can only access it using `sudo`. The Docker daemon always runs as the `root` user.
+
+If you don’t want to preface the `docker` command with `sudo`, create a Unix group called `docker` and add users to it. When the Docker daemon starts, it creates a Unix docker accessible by members of the `docker` group. On some Linux distributions, the system automatically creates this group when installing Docker Engine using a package manager, such as Ubuntu. In that case, there is no need for you to manually create the group.
+
+<font color=#FF0000>Warning: The `docker` group grants root-level privileges to the user. For details on how this impacts security in your system, see [Docker Daemon Attack Surface]([https://docs.docker.com/engine/security/#docker-daemon-attack-surface](https://docs.docker.com/engine/security/#docker-daemon-attack-surface)).</font>
+
+#### To create the `docker` group and add your user
+1. Create the `docker` group.
 
 ```
-permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/images/json": dial unix /var/run/docker.sock: connect: permission denied
+sudo groupadd docker
 ```
 
+**Note:** If you are using Ubuntu, the `docker`group would be created once the docker has been installed successfully. So, the `groupadd docker` command will get the output `groupadd: group 'docker' already exists`.
+
+2. Add your user to the `docker` group.
+```
+sudo usermod -aG docker $USER
+```
+
+3. Log out and log back in so that your group membership is re-evaluated. If you are running Linux in a virtual machine, it may be necessary to restart the virtual machine for changes to take effect. You can also run the following command to activate the changes to groups:
+
+```
+newgrp docker
+```
+
+4. Verify that you can run `docker` commands without `sudo`.
+```
+docker run hello-world
+```
+
+### Configure Docker to start on boot with system
+Many modern Linux distributions use `systemd` to manage which services start when the system boots. On Debian and [Ubuntu]([https://ubuntu.com/](https://ubuntu.com/)), the Docker service starts on boot by default. To automatically start Docker and containerd on boot for other Linux distributions using system, run the following commands:
+
+```
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+```
+
+To check the current docker daemon status, run the following commands:
+
+```
+sudo systemctl status docker.service 
+```
+
+You should be able to see the docker daemon information as following:
+```
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2023-07-11 20:05:33 CST; 4min 3s ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 701 (dockerd)
+      Tasks: 9
+     Memory: 99.7M
+     CGroup: /system.slice/docker.service
+             └─701 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+```
+
+Now we can re-run the `docker image ls` for confirmation.
+```
+docker image ls
+
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+hello-world   latest    9c7a54a9a43c   2 months ago   13.3kB
+```
