@@ -1,0 +1,61 @@
+# Build
+docker build . -t simple_flask:latest
+```
+[+] Building 2.5s (11/11) FINISHED                                                                                  docker:default
+ => [internal] load build definition from Dockerfile                                                                          0.0s
+ => => transferring dockerfile: 239B                                                                                          0.0s
+ => [internal] load .dockerignore                                                                                             0.0s
+ => => transferring context: 2B                                                                                               0.0s
+ => [internal] load metadata for docker.io/library/python:3.8-alpine                                                          2.2s
+ => [1/6] FROM docker.io/library/python:3.8-alpine@sha256:fca97c8ba04d829e53f6ed1990f39ff02a7bcc15fa4634594608d78636b9c4d1    0.0s
+ => [internal] load build context                                                                                             0.0s
+ => => transferring context: 13.61kB                                                                                          0.0s
+ => CACHED [2/6] WORKDIR /app                                                                                                 0.0s
+ => CACHED [3/6] COPY requirements.txt .                                                                                      0.0s
+ => CACHED [4/6] RUN python3 -m pip install --upgrade pip                                                                     0.0s
+ => CACHED [5/6] RUN python3 -m pip install -r requirements.txt                                                               0.0s
+ => [6/6] COPY . .                                                                                                            0.1s
+ => exporting to image                                                                                                        0.0s
+ => => exporting layers                                                                                                       0.0s
+ => => writing image sha256:fe501ad473cc26d0e3f389bd040dc5078731d9d5b9fc121443a23bb66e2a57dc                                  0.0s
+ => => naming to docker.io/library/simple_flask:latest
+```
+
+# Run
+docker run -d -p 7777:5000 --rm simple_flask:latest
+```
+d9e1ad947d1255cfa542ab7b7f2514707a82ae7497d00ef45b8fa4045b089940
+```
+
+# Docker images check
+docker image ls
+```
+REPOSITORY     TAG       IMAGE ID       CREATED         SIZE
+simple_flask   latest    fe501ad473cc   5 seconds ago   70.9MB
+```
+
+# Docker containers check
+docker ccontainer ls
+
+```
+CONTAINER ID   IMAGE                 COMMAND            CREATED         STATUS         PORTS                                       NAMES
+d9e1ad947d12   simple_flask:latest   "python3 app.py"   5 minutes ago   Up 5 minutes   0.0.0.0:7777->5000/tcp, :::7777->5000/tcp   flamboyant_austin
+```
+
+# Docker logs {{ CONTAINER ID }}
+docker logs d9e1ad947d12
+```
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 796-184-095
+172.17.0.1 - - [13/Jul/2023 07:54:31] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [13/Jul/2023 07:54:31] "GET /favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [13/Jul/2023 08:01:01] "GET /index HTTP/1.1" 200 -
+```
