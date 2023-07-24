@@ -39,7 +39,7 @@ Make sure you have the following dependencies installed:
 - [Vagrant](https://www.vagrantup.com/downloads) for building and managing virtual machine environments. Ensure you have `6.1.16` or higher version installed.
 
 
-## Run 
+## Run Flask
 
 To run this application there are 2 steps required:
 
