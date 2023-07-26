@@ -1,4 +1,11 @@
 ## Introduction 
+- Containers are a form of operating system virtualization. However, containers do not contain operating system images. This makes them more lightweight and portable, with significantly less overhead.
+
+-  A container includes all the necessary executables, binary codes, libraries, and configuration files. Therefore, it can be run anything from a small microservice or software process to a larger application.
+
+- In large-scale application deployments, multiple containers may be deployed as one or more container clusters. Such clusters might be managed by a container orchestrator such as Docker Swarm, Kubernetes.
+
+In a nutshell, using containers could be more streamlined to build, test, and deploy the applications on multiple environments, from a developer’s local laptop to an on-premises data center and even the cloud.
 
 ## Build
 
@@ -96,3 +103,52 @@ For more information about building and running the image, refer to `https://git
 
 
 ## Test
+
+Default run the container with interactive mode:
+```
+docker run --interactive --tty ov-2023.0.0-dev:latest
+```
+
+Note currently only the `CPU` plugin is available, we can check by running `python3` with following command:
+```
+Python 3.10.6 (main, May 29 2023, 11:10:38) [GCC 11.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from openvino.runtime import Core
+>>> core = Core()
+>>> core.available_devices
+['CPU', 'GNA']
+>>> 
+```
+
+To use `GPU` accelerator, we need to add the argument `--device /dev/dri:/dev/dri` like this:
+```
+docker run --interactive --tty --device /dev/dri:/dev/dri ov-2023.0.0-dev:latest
+```
+
+Inside the container, running `python3` again for plugins confirmation:
+```
+Python 3.10.6 (main, May 29 2023, 11:10:38) [GCC 11.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from openvino.runtime import Core
+>>> core = Core()
+>>> devices = core.available_devices
+>>> for device in devices:
+...     full_device_name = core.get_property(device, "FULL_DEVICE_NAME")
+...     print(device, full_device_name)
+... 
+CPU 11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz
+GNA GNA_SW
+GPU Intel(R) Iris(R) Xe Graphics (iGPU)
+>>> 
+```
+
+Now the `GPU` is ready for inference.
+
+In real-world practical use cases, it's more convenient to add volume for easier data usage and webcam for live streaming. For example:<br>
+- Bind the local `/home/<user>/Downloads` directory to `/mnt` the container directory: `--volume /home/cnai/Downloads:/mnt`
+- Link the USB video camera: `--device /dev/video0:/dev/video0`
+
+Putting all together:
+```
+docker run --interactive --tty --device /dev/dri:/dev/dri --volume /home/cnai/Downloads:/mnt --device /dev/video0:/dev/video0 ov-2023.0.0-dev:latest
+```
