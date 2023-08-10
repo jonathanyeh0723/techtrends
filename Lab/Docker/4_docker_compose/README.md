@@ -2,11 +2,36 @@
 
 ## Introduction
 
-- What
+- **What:** According to [Docker Compose from Official Docker Docs](https://docs.docker.com/compose/), it is a took that was developed to help define and share multi-container applications. With Docker Compose, we can create a YAML file to define the services and with a single command can spin everything up or tear it all down.
 
-- Why
+*The big advantage is that you can define your application stack in a file, keep it at the root of your project repo (it is now version controlled), and easily enable someone else to contribute to your project.*
 
-- How
+- **How:** If you installed Docker Desktop for Windows, Mac, or Linux you already have Docker Compose! Or if you prefer to proceed with standalone installations, you can check out [install the Compose plugin](https://docs.docker.com/compose/install/linux/).
+
+For example, if you’re a Linux user in Ubuntu or Debian distribution, and would like to install using the repository, you will need to first set up the repository. Once it’s done, you can update the package index and install the latest version of Docker Compose.
+
+```
+$ sudo apt-get update
+$ sudo apt-get install docker-compose-plugin
+```
+
+After installation, you should be able to run the following and see version information.
+```
+$ docker compose version
+```
+
+Example output
+```
+Docker Compose version v2.19.1
+```
+
+- **Why:** With Docker Compose, you can replace multiple Docker build and Docker run commands with just one configuration file. You can easily have all the containerized services and applications up or down with a simple, set of orchestration commands, and build all necessary images as well if required.
+
+The `docker-compose` mainly solve the problem of annoying repetition of long commands. You don’t really need to use it, but that case you will have to execute every single commands manually otherwise.
+
+On the other hand, although some commands could be replaced by `docker-compose`, but it is not all! For instance, you would still need to use `docker push` to push the image to a public registry like `Docker Hub`. So, we should flexibly use these commands together.
+
+In addition, by using `Docker Compose` a default network would be created for all the composed containers. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by them at a hostname identical to the container name.
 
 For more information, refer to https://docs.docker.com/compose/install/.
 
