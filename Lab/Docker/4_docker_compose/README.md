@@ -69,3 +69,12 @@ CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS
 502c12861643   prom/prometheus   "/bin/prometheus --c…"   4 minutes ago   Up 4 minutes   0.0.0.0:9090->9090/tcp, :::9090->9090/tcp   prometheus
 1e62fc5b29ee   grafana/grafana   "/run.sh"                4 minutes ago   Up 4 minutes   0.0.0.0:3000->3000/tcp, :::3000->3000/tcp   grafana
 ```
+
+Now you can navigate to `http://localhost:3000` in your web browser and use the login credentials specified in the compose file to access Grafana. In this case:
+```
+username:   devops_admin	
+password:   prometheus_grafana	
+```
+It is already configured with prometheus as the default datasource. Check out `compose.yml` for more information in detail.
+
+![grafana_login](./resources/grafana_login.png)
